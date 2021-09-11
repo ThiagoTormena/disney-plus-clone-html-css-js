@@ -153,3 +153,24 @@ body {
     margin-bottom: 20px;
     justify-content: space-between;
 }
+.video-card{
+    position: relative;
+    min-width: calc(100%/5 - 10px);
+    width: calc(100%/5 - 10px);
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #030b17;
+}
+.video-card-image,
+.card-video{
+    height: 100%;
+    width: 100%;
+    object-fit: conver;
+}
+.card-video{
+    position: absolute;
+}
+.video-card:hover .video-card-image{
+    display: none;
+}
