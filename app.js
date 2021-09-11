@@ -17,7 +17,7 @@ const createSlide = () => {
     // attaching elements
     imgElement.appendChild(document.createTextNode(''));
     h1.appendChild(document.createTextNode(movies[slideIndex].name));
-    p.appendChild(document.createTextNode(movies[slideIndex].description));
+    p.appendChild(document.createTextNode(movies[slideIndex].des));
     content.appendChild(h1);
     content.appendChild(p);
     slide.appendChild(content);
@@ -48,7 +48,7 @@ createSlide();
 
 setInterval(() => {
     createSlide();
-}, 3000);
+}, 4000);
 
 // video cards
 
@@ -62,5 +62,23 @@ videoCards.forEach(item => {
     item.addEventListener('mouseleave', () => {
         let video = item.children[1];
         video.pause();
+    })
+})
+
+// card sliders
+
+let cardContainers = [...document.querySelectorAll('.card-container')];
+let preBtns = [...document.querySelectorAll('.pre-btn')];
+let nxtBtns = [...document.querySelectorAll('.nxt-btn')];
+
+cardContainers.forEach((item, i) => {
+    let containerDimensions = item.getBoundingClientRect();
+    let containerWidth = containerDimensions.width
+
+    nxtBtns[i].addEventListener('click', () => {
+        item.scrollLeft += containerWidth - 200;
+    })
+    preBtns[i].addEventListener('click', () => {
+        item.scrollLeft -= containerWidth + 200;
     })
 })
